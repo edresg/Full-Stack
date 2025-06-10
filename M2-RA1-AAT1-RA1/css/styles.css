@@ -1,0 +1,323 @@
+/* ================= VARIABLES ================= */
+:root {
+    --neon-blue: #5390d9;
+    --neon-pink: #56cfe1;
+    --neon-purple: #72efdd;
+    --neon-green: #80ffdb;
+    --dark-bg: #010101;
+    --darker-bg: #0a0a0a;
+    --text-color: #eee;
+    --primary: #80ffdb;
+}
+
+/* ================= RESET Y BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+body > main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 80px auto 0;
+    padding: 20px;
+    animation: entrada 1s;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+/* ================= NAVBAR ================= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0, 136, 255, 0.3);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--neon-blue);
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.nav-item:hover .nav-icon {
+    color: var(--neon-blue);
+    transform: translateY(-5px);
+}
+
+.nav-item:hover .nav-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-item.active .nav-icon {
+    color: var(--neon-pink);
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-blue);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 5% 0;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    max-width: 55%;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3.9rem;
+    line-height: 1.2;
+}
+
+.hero h2 span {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* ================= PERFIL ================= */
+.profile-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid transparent;
+    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple), 0 0 60px var(--neon-pink);
+    animation: glow 4s ease-in-out infinite alternate, float 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.profile-border {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2px dashed var(--neon-green);
+    animation: spin 20s linear infinite;
+}
+
+.profile-border::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 2px dashed var(--neon-blue);
+    animation: spin 15s linear infinite reverse;
+}
+
+.tech-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: spin 30s linear infinite;
+}
+
+.tech-icons .nav-icon {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+    filter: drop-shadow(0 0 5px var(--neon-green));
+}
+
+/* ================= FOOTER ================= */
+footer {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background-color: #1e272e;
+    color: white;
+}
+
+/* ================= ANIMACIONES ================= */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple), 0 0 60px var(--neon-pink); }
+    100% { box-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-purple), 0 0 90px var(--neon-blue); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+        align-self: flex-end;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    body > main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main section {
+        width: 100%;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-border {
+        width: 220px;
+        height: 220px;
+    }
+}

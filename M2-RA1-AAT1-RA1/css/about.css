@@ -1,0 +1,101 @@
+/* ================= VARIABLES ================= */
+:root
+{
+    --neon-blue: #5390d9;
+    --neon-pink: #56cfe1;
+    --neon-purple: #72efdd;
+    --neon-green: #80ffdb;
+    --dark-bg: #010101;
+    --darker-bg: #0a0a0a;
+    --text-color: #eee;
+    --primary: #80ffdb;
+}
+
+.about
+{
+    padding: 5rem 5%;
+    background-color: var(--darker-bg);
+    position: relative;
+    
+}
+
+.about::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    
+}
+
+.section-tittle
+{
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-tittle::after
+{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    border-radius: 3px
+}
+
+.about-content
+{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+about-text
+{
+    flex: 1;
+}
+
+.about-text p
+{
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.skills
+{
+    flex: 1;
+}
+
+.skill-item
+{
+    margin-bottom: 1.5rem;
+    
+}
+
+.skill-name
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar
+{
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
