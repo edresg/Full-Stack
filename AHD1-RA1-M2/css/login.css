@@ -1,0 +1,127 @@
+/* Estilo principal de fondo oscuro con brillo */
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(90vh - 140px); /* Compensa header y footer */
+  padding: 2rem;
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+}
+
+/* Contenedor con estilo futurista y animación de entrada */
+.login-container {
+  background: #111;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffff66, 0 0 40px #00ffff33;
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #00ffff;
+  animation: loginEntrada 1.2s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borde animado brillante (futurista) */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ffff, #00ffaa, #00ffff, #00ffaa);
+  background-size: 400% 400%;
+  animation: brilloBorde 6s ease infinite;
+  z-index: -1;
+  filter: blur(5px);
+  border-radius: 14px;
+}
+
+/* Animación de entrada tipo "saltar del ciberespacio" */
+@keyframes loginEntrada {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateX(80deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg) scale(1);
+  }
+}
+
+/* Borde animado */
+@keyframes brilloBorde {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Título con efecto neón */
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiquetas */
+label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+/* Inputs con efecto glow al enfocar */
+input {
+  padding: 0.7rem;
+  border: 1px solid #00ffff44;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #222;
+  color: white;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* Botón con efecto cibernético */
+button {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff99;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00dddd;
+  box-shadow: 0 0 15px #00ffffaa, 0 0 30px #00ffff88;
+}
+
+/* Mensaje de error */
+#mensajeLogin {
+  text-align: center;
+  color: #ff4d4d;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-shadow: 0 0 5px red;
+}

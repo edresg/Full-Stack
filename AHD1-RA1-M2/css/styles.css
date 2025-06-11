@@ -1,0 +1,186 @@
+/* Resetear estilos */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Pantalla completa y fondo oscuro */
+html, body {
+    height: 100%;
+    min-height: 100dvh;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+/* Header con glow animado */
+header {
+    background-color: #0f0f0f;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+    animation: brillo-header 3s infinite alternate;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+@keyframes brillo-header {
+    from { box-shadow: 0 0 5px #00ffff; }
+    to   { box-shadow: 0 0 20px #00ffff; }
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 2.2vw;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+    animation: destello 2s infinite alternate;
+}
+
+@keyframes destello {
+    from { text-shadow: 0 0 5px #00ffff; }
+    to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #fff;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: #00ffff;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    background-color: #00ffff22;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+/* Menú hamburguesa */
+.hamburguesa {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburguesa span {
+    background: #00ffff;
+    height: 4px;
+    width: 25px;
+    margin: 4px;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+/* Main animado */
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 80px auto 0px;
+    padding: 20px;
+    animation: slideInUp 1s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Secciones brillantes */
+section {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff55;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+/* Flotar sutil */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0px); }
+    50%      { transform: translateY(-5px); }
+}
+
+/* Footer brillante */
+footer {
+    background-color: #0f0f0f;
+    color: #00ffff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #00ffff55;
+    animation: brillo-footer 3s infinite alternate;
+}
+
+@keyframes brillo-footer {
+    from { text-shadow: 0 0 5px #00ffff; }
+    to   { text-shadow: 0 0 15px #00ffff; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #0f0f0f;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 150px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #00ffff;
+    }
+
+    .hamburguesa {
+        display: flex;
+    }
+
+    nav ul.verMenu {
+        display: flex;
+    }
+
+    nav .logo {
+        font-size: 6vw;
+    }
+}
